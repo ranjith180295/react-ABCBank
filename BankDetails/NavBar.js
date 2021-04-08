@@ -17,12 +17,16 @@ class NavBar extends React.Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem("user") != "") {
+    debugger;
+    if (
+      localStorage.getItem("user") != "" &&
+      localStorage.getItem("user") != null
+    ) {
       this.setState({
         userName: localStorage.getItem("user")
       });
     } else {
-      alert("Not Authorized to access thi page.!");
+      alert("Not Authorized to access this page.!");
       location.href = window.location.origin;
     }
   }

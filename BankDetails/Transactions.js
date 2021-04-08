@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./style";
 import NavBar from "./NavBar";
-import OutData from "./Transaction_out.json";
+import OutData from "./Transactions.json";
 
 import Footer from "./Footer";
 class SimpleTable extends React.Component {
