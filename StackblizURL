@@ -1,1 +1,6 @@
 https://react-c1bru2.stackblitz.io/
+
+// have not perforemed DB operations, Due to VS Code installation problem.
+Only loaded data from JSON file in web server and displayed
+User Name : Ranjith
+Password : 123
