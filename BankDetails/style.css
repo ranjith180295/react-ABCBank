@@ -419,6 +419,7 @@ input[type="date"] ~ .fa {
   margin-left: 5px;
 }
 .error input[type="text"],
+.error input[type="password"],
 .error input[type="date"],
 .error input[type="number"],
 .error select {
