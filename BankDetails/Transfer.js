@@ -39,11 +39,10 @@ class TransferCom extends React.Component {
     };
   }
 
-  //Helper Functions
+  //Change event fuctions
   changeFrom(event) {
     const fromAccount = event.target.value;
     let toAccounts = [...this.state.toAccounts];
-    // toAccounts = _.without(toAccounts, _.find(toAccounts, ["id", fromAccount]));
     const toAccount =
       fromAccount === this.state.toAccount ? 0 : this.state.toAccount;
     this.setState({ fromAccount, toAccounts, toAccount });
@@ -90,6 +89,7 @@ class TransferCom extends React.Component {
   confirmSubmit() {
     this.setState({ modal: false, route: "confirm" });
   }
+
   restart() {
     this.setState({
       route: "form",
@@ -117,18 +117,15 @@ class TransferCom extends React.Component {
     let errors = {};
     let valid = true;
     if (!this.state.fromAccount)
-      errors.fromAccount = "From Account Field is Required";
-    if (!this.state.toAccount)
-      errors.toAccount = "To Account Field is Required";
-    if (!this.state.startDate)
-      errors.startDate = "From Account Field is Required";
-    if (!this.state.ammount) errors.ammount = "Ammount Field is Required";
+      errors.fromAccount = "From Account is Required";
+    if (!this.state.toAccount) errors.toAccount = "To Account is Required";
+    if (!this.state.startDate) errors.startDate = "From Account is Required";
+    if (!this.state.ammount) errors.ammount = "Ammount is Required";
     if (!this.state.transferType) {
-      errors.transferType = "Transfer Type Field is Required";
+      errors.transferType = "Transfer Type is Required";
     } else if (this.state.transferType === "Automatic Transfer") {
-      if (!this.state.endDate) errors.endDate = "End Date Field is Required";
-      if (!this.state.frequency)
-        errors.frequency = "Frequency Field is Required";
+      if (!this.state.endDate) errors.endDate = "End Date is Required";
+      if (!this.state.frequency) errors.frequency = "Frequency is Required";
     }
 
     if (Object.getOwnPropertyNames(errors).length > 0) valid = false;
@@ -137,6 +134,7 @@ class TransferCom extends React.Component {
     return valid;
   }
 
+  // to get Current Date
   getToday() {
     let today = new Date();
     let dd = today.getDate();
@@ -151,7 +149,7 @@ class TransferCom extends React.Component {
     return today;
   }
 
-  //Handle Form Submitting
+  //Subtmit Form
   handleSubmit(event) {
     event.preventDefault();
     if (!this.validate()) return;
@@ -170,7 +168,7 @@ class TransferCom extends React.Component {
     });
   }
 
-  //Helper Render Function
+  //Show hide events for Frequency
   showHiddenFields(radio) {
     if (radio === "One Time Transfer") {
       return (
@@ -199,9 +197,10 @@ class TransferCom extends React.Component {
     }
   }
 
+  //Show Modal popup
   renderModal() {
     if (!this.state.modal) return;
-    console.log("Showing Modal");
+
     return (
       <div className="modalWindow">
         <div className="modal-content">
@@ -222,6 +221,7 @@ class TransferCom extends React.Component {
     );
   }
 
+  //Loading main section
   router(route) {
     if (route === "form") {
       return (
@@ -316,20 +316,6 @@ class TransferCom extends React.Component {
           <Confirm form={this.state.form} setRoute={this.restart.bind(this)} />
         </div>
       );
-    } else if (route === "profile") {
-      return (
-        <div>
-          <NavBar />
-          <Profile />
-        </div>
-      );
-    } else if (route === "home") {
-      return (
-        <div>
-          <NavBar />
-          <Home />
-        </div>
-      );
     }
   }
 
@@ -381,6 +367,7 @@ const Memo = props => {
   );
 };
 
+//Dropdown
 class Select extends React.Component {
   constructor(props) {
     super(props);
@@ -491,7 +478,7 @@ const Confirm = props => {
         <i className="fa fa-smile-o" />
         <p>
           Your transfer has been successfully completed on {today} with
-          confirmation number {Math.random() * 10000000000000000}
+          confirmation number {Math.random() * 1000000000}
         </p>
       </div>
       <h3>Summary</h3>
