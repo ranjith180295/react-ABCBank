@@ -293,7 +293,7 @@ class TransferCom extends React.Component {
               />
             </fieldset>
             {this.showHiddenFields(this.state.transferType)}
-            <Memo
+            <Remarks
               onChange={this.changeMemo.bind(this)}
               memo={this.state.memo}
               maxlen={120}
@@ -350,11 +350,11 @@ class TransferCom extends React.Component {
   }
 }
 
-const Memo = props => {
+const Remarks = props => {
   return (
     <fieldset>
       <label className="main-label">
-        Remarks (OPTIONAL: Maximum of {props.maxlen} characters)
+        Remarks OPTIONAL: Maximum of {props.maxlen} characters
       </label>
       <textarea
         maxLength={props.maxlen}
@@ -426,7 +426,7 @@ const HiddenFields = props => {
       <fieldset className={props.errors.frequency ? "error" : ""}>
         <label className="main-label">Frequency</label>
         <select value={props.frequency} onChange={props.changeFrequency}>
-          <option value="Weekly">Weekly</option>
+          <option value="Weekly">Select Frequency</option>
           <option value="Bi-Monthly">1st and 15th of each month</option>
           <option value="Monthly">Every Month</option>
           <option value="Every Two Months">Every Two Months</option>

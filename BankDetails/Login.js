@@ -36,8 +36,7 @@ class LoginCom extends React.Component {
   //Handle Form Submitting
   handleSubmit(event) {
     event.preventDefault();
-    if (!this.validate()) return;
-    debugger;
+    if (!this.validate()) return; 
     const { username, password, returnUrl } = this.state;
 
     if (this.state.UserName == "Ranjith" && this.state.UserPassword == "123") {
@@ -100,7 +99,7 @@ class LoginCom extends React.Component {
                   onChange={this.handleChange} //onChange={this.handleChange.bind(this)}
                   className="inputLoginInput"
                   maxLength="15"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </fieldset>
               <br />
@@ -125,7 +124,7 @@ class LoginCom extends React.Component {
               <fieldset className="button-holder">
                 <input
                   type="submit"
-                  className="button CTALoginButton"
+                  className="button simpleButton"
                   value="Login"
                 />
                 <input

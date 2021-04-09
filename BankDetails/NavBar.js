@@ -17,7 +17,6 @@ class NavBar extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     if (
       localStorage.getItem("user") != "" &&
       localStorage.getItem("user") != null
